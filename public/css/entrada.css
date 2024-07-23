@@ -1,0 +1,158 @@
+body {
+    background: linear-gradient(to bottom, #08B2FF, white); /*Define a coloração do fundo*/
+    display: flex; /*Contêiner flexível*/
+    justify-content: center; /*Justificando os itens flexíveis (filhos do contêiner) horizontal ao centro do contêiner*/
+    align-items: center; /*Alinhando os objetos flexíveis verticalmente ao centro do contêiner*/
+    min-height: 100vh; /*Definimos a altura mínima do objeto como 100% da viewport*/
+    font-family: "Readex Pro", sans-serif; /*Define a fonte para Readex Pro (Google Fonts)*/
+    overflow: hidden; /*Esconde o conteúdo, qualquer conteúdo que ultrapasse os limites do elemento não será visível.*/
+    position: relative; /*Adiciona efeito e animação de rastro*/
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    text-align: center;
+}
+
+h1 {
+    color: white;
+    font-size: 48px;
+    margin-bottom: 1rem;
+}
+
+.box-logo {
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    border-radius: 10px;
+    margin: 2rem auto;
+}
+
+.layout-button {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    justify-content: center;
+}
+
+.button {
+    width: 200px;
+    padding: 0.5rem 0;
+    border-radius: 20px;
+    font-size: 1rem;
+    margin: 1rem 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    background-color: #08B2FF;
+    color: #FFFFFF;
+    position: relative; /* Adicionado para a animação de brilho */
+    z-index: 1; /*Garantir que o botão esteja acima da pseudo-classe ::before*/
+}
+
+.button:focus {
+    outline: none;
+}
+
+.button:hover {
+    background-color: transparent;
+    color: #08B2FF;
+    border: 2px solid #08B2FF;
+}
+
+.return-link {
+    color: #08B2FF;
+    cursor: pointer;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.return-link:hover {
+    animation: jump 0.5s infinite alternate;
+}
+
+@keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+.pendulum {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+h1:hover .pendulum {
+    animation: pendulum-swing 1s infinite;
+}
+
+@keyframes pendulum-swing {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(15deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(-15deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* Animação de brilho para o botão "Cadastrar" */
+.register::before {
+    content: '';
+    position: absolute;
+    top: -4px; /* Ajustado para garantir que a animação seja visível */
+    left: -4px; /* Ajustado para garantir que a animação seja visível */
+    right: -4px; /* Ajustado para garantir que a animação seja visível */
+    bottom: -4px; /* Ajustado para garantir que a animação seja visível */
+    border-radius: 24px; /* Ajustado para corresponder ao tamanho do botão */
+    background: linear-gradient(45deg, rgba(8, 178, 255, 0.5), rgba(255, 255, 255, 0.5), rgba(8, 178, 255, 0.5));
+    background-size: 400%;
+    z-index: -1;
+    animation: glowing 2s linear infinite;
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Estilos para os rastros de arrasto */
+.trail {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(8, 178, 255, 0.8);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: fade-out 2.5s forwards;
+}
+
+@keyframes fade-out {
+    to {
+        opacity: 0;
+    }
+}
