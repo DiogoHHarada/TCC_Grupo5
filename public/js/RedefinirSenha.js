@@ -11,9 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
         newPasswordInput.setAttribute("type", type);
 
         if (type === "password") {
-            toggleNewPassword.setAttribute("src", "images/show_password_icon.png");
+            toggleNewPassword.setAttribute("src", "/img/show_password_icon.png");
         } else {
-            toggleNewPassword.setAttribute("src", "images/hide_password_icon.png");
+            toggleNewPassword.setAttribute("src", "/img/hide_password_icon.png");
         }
     });
 
@@ -22,9 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
         confirmPasswordInput.setAttribute("type", type);
 
         if (type === "password") {
-            toggleConfirmPassword.setAttribute("src", "images/show_password_icon.png");
+            toggleConfirmPassword.setAttribute("src", "/img/show_password_icon.png");
         } else {
-            toggleConfirmPassword.setAttribute("src", "images/hide_password_icon.png");
+            toggleConfirmPassword.setAttribute("src", "/img/hide_password_icon.png");
         }
     });
 
