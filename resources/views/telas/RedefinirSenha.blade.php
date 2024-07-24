@@ -14,7 +14,7 @@
                 </div>
                 <div class="input-container">
                     <input id="confirm-password" placeholder="Confirme a senha" type="password" required>
-                    <img id="toggle-confirm-password" width="20" height="20" src="images/show_password_icon.png" alt="Toggle Password Visibility" />
+                    <img id="toggle-confirm-password" width="20" height="20" src="/img/show_password_icon.png" alt="Toggle Password Visibility" />
                 </div>
                 <div id="error-message" class="error-message"></div>
                 <button type="submit" class="submit-button">Redefinir</button>
