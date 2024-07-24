@@ -1,7 +1,7 @@
 @extends('layout.site')
 @section('titulo','AtmoVision')
 @section('conteudo')
-    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/Login.css">
     <div class="container">
         <form id="login-form">
             <h1>Entre na sua conta</h1>
@@ -23,5 +23,5 @@
             </div>
         </form>
     </div>
-    <script src="/js/login.js"></script>
+    <script src="/js/Login.js"></script>
 @endsection

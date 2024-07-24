@@ -9,10 +9,14 @@ class TelasController extends Controller
 {
     //
     public function entrada() {
-        return view('telas.entrada');
+        return view('telas.Entrada');
     }
 
     public function login() {
-        return view('telas.login');
+        return view('telas.Login');
+    }
+
+    public function redefinir() {
+        return view('telas.RedefinirSenha');
     }
 }
