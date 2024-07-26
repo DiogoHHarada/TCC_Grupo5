@@ -3,7 +3,7 @@
 @section('conteudo')
     <link rel="stylesheet" href="/css/Login.css">
     <style>
-            @import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@160..700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@160..700&display=swap');
     </style>
     <div class="container">
         <form id="login-form">
@@ -16,7 +16,7 @@
             <div class="input-container">
                 <input id="password" placeholder="Senha" type="password" required>
                 <img id="toggle-password" width="20" height="20" src="/img/show_password_icon.png" alt="Toggle Password Visibility" />
-                <a href="#" class="lost">Esqueci minha senha</a>
+                <a href="{{ route('telas.InserirEmail')}}" class="lost">Esqueci minha senha</a>
             </div>
 
             <button type="submit" class="submit-button">Entrar</button>
