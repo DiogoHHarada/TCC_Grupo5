@@ -27,7 +27,6 @@ Route::get('/RedefinirSenha',
 ['as' =>'RedefinirSenha',
 'uses'=>'App\Http\Controllers\Site\RedefinirSenha@index']);
 
-
 Route::get('/InserirEmail',
 ['as' =>'InserirEmail',
 'uses'=>'App\Http\Controllers\Site\InserirEmail@index']);
