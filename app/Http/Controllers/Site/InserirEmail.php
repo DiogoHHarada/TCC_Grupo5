@@ -1,28 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Telas;
-
-use App\Http\Controllers\Controller;
+namespace App\Http\Controllers\Site;
 use App\Models\Usuario;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
-class TelasController extends Controller
+class InserirEmail extends Controller
 {
     //
-    public function entrada() {
-        return view('telas.Entrada');
-    }
-
-    public function login() {
-        return view('telas.Login');
-    }
-
-    public function redefinir() {
-        return view('telas.RedefinirSenha');
-    }
-
-    public function email() {
-        return view('telas.InserirEmail');
+    public function index() {
+        return view('InserirEmail.index');
     }
 
     public function enviar(Request $request)
@@ -45,5 +33,6 @@ class TelasController extends Controller
         } else {
             return redirect()->route('esqueci')->withErrors(['email' => 'Email inexistente nos registros!']);
         }
+        return view('InserirEmail.index');
     }
 }

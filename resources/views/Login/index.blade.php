@@ -16,7 +16,7 @@
             <div class="input-container">
                 <input id="password" placeholder="Senha" type="password" required>
                 <img id="toggle-password" width="20" height="20" src="/img/show_password_icon.png" alt="Toggle Password Visibility" />
-                <a href="{{ route('telas.InserirEmail')}}" class="lost">Esqueci minha senha</a>
+                <a href="{{ route('InserirEmail')}}" class="lost">Esqueci minha senha</a>
             </div>
 
             <button type="submit" class="submit-button">Entrar</button>

@@ -6,24 +6,33 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/telas/Entrada',
-['as' =>'telas.Entrada',
-'uses'=>'App\Http\Controllers\Telas\TelasController@entrada']);
-
-Route::get('/telas/Login',
-['as' =>'telas.Login',
-'uses'=>'App\Http\Controllers\Telas\TelasController@login']);
-
-Route::get('/telas/RedefinirSenha',
-['as' =>'telas.RedefinirSenha',
-'uses'=>'App\Http\Controllers\Telas\TelasController@redefinir']);
+Route::get('/Entrada',
+['as' =>'Entrada',
+'uses'=>'App\Http\Controllers\Site\EntradaController@index']);
 
 
-Route::get('/telas/InserirEmail',
-['as' =>'telas.InserirEmail',
-'uses'=>'App\Http\Controllers\Telas\TelasController@email']);
+Route::get('/Login', 
+['as' =>'login',
+'uses'=>'App\Http\Controllers\Site\LoginController@index']);
 
-Route::post('/telas/InserirEmail',
-['as' =>'telas.InserirEmail',
-'uses'=>'App\Http\Controllers\Telas\TelasController@enviar']);
+Route::post('/login/entrar',
+['as'=>'login.entrar',
+'uses'=>'App\Http\Controllers\Site\LoginController@entrar']);
+
+Route::get('/login/sair',
+['as'=>'login.sair',
+'uses'=>'App\Http\Controllers\Site\LoginController@sair']);
+
+Route::get('/RedefinirSenha',
+['as' =>'RedefinirSenha',
+'uses'=>'App\Http\Controllers\Site\RedefinirSenha@index']);
+
+
+Route::get('/InserirEmail',
+['as' =>'InserirEmail',
+'uses'=>'App\Http\Controllers\Site\InserirEmail@index']);
+
+Route::post('InserirEmail/enviar',
+['as' =>'InserirEmail.enviar',
+'uses'=>'App\Http\Controllers\Site\InserirEmail@enviar']);
 
