@@ -35,3 +35,19 @@ Route::post('InserirEmail/enviar',
 ['as' =>'InserirEmail.enviar',
 'uses'=>'App\Http\Controllers\Site\InserirEmail@enviar']);
 
+Route::post('InserirEmail/enviar',
+['as' =>'InserirEmail.enviar',
+'uses'=>'App\Http\Controllers\Site\InserirEmail@enviar']);
+
+Route::get('InserirEmail/verificar', 
+['as' => 'InserirEmail.verificar',
+'uses' => 'App\Http\Controllers\Site\InserirEmail@showVerifyForm']);
+
+Route::post('InserirEmail/verificar', 
+['as' => 'InserirEmail.verificar.code',
+'uses' => 'App\Http\Controllers\Site\InserirEmail@verifyCode']);
+
+Route::get('Dashboard', 
+['as' => 'Dashboard',
+'uses' => 'App\Http\Controllers\Site\Dashboard@index']);
+

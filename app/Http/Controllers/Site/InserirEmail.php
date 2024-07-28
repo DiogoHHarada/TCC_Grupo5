@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
+
 class InserirEmail extends Controller
 {
     //
@@ -15,24 +16,58 @@ class InserirEmail extends Controller
 
     public function enviar(Request $request)
     {
+        
+        $request->validate([
+            'email' => 'required|email',
+        ]);
+
         $email = $request->input('email');
+        $user = Usuario::where('email', $email)->first();
 
-        $usuario = Usuario::where('email', $email)->first();
+        
+        if ($user) {
+        // Gerar um código aleatório de 6 dígitos
+        $code = random_int(100000, 999999);
 
-        if ($usuario) {
-            $senhaNova = str_random(8);
-            $usuario->senha = bcrypt($senhaNova);
-            $usuario->save();
+        // Enviar o e-mail com o código
+        Mail::raw("Seu código de verificação é: $code", function ($message) use ($email) {
+            $message->to($email)
+                    ->subject('Código de Verificação');
+        });
+        // Salvar o código no banco de dados
+        $user->verificacao_codigo = $code;
+        $user->save();
 
-            Mail::send('emails.nova_senha', ['nome' => $usuario->nome, 'senha' => $senhaNova], function ($m) use ($email) {
-                $m->from('seu_email@wristwear.com.br', 'WristWear LTDA');
-                $m->to($email)->subject('Nova senha');
-            });
+        // Redirecionar para a página de verificação de código
+        return redirect()->route('InserirEmail.verificar')->with('email', $email);
+            }
 
-            return redirect()->route('esqueci')->with('success', 'Nova senha enviada com sucesso!');
-        } else {
-            return redirect()->route('esqueci')->withErrors(['email' => 'Email inexistente nos registros!']);
-        }
-        return view('InserirEmail.index');
+        return redirect()->back()->with('error', 'E-mail não encontrado no banco de dados.');
     }
+
+    public function showVerifyForm(Request $request)
+    {
+        $email = session('email');
+        return view('VerificarCodigo.index', compact('email'));
+    }
+
+    public function verifyCode(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'code' => 'required|numeric|digits:6',
+        ]);
+
+        $email = $request->input('email');
+        $code = $request->input('code');
+
+        $user = Usuario::where('email', $email)->where('verificacao_codigo', $code)->first();
+
+        if ($user) {
+            // Código verificado com sucesso
+            return redirect()->route('RedefinirSenha')->with('success', 'Código verificado com sucesso!');
+        }
+
+        return redirect()->back()->with('error', 'Código de verificação incorreto.');
+    }    
 }
