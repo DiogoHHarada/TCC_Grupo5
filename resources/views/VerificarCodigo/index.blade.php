@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Verificar Código</title>
-</head>
-<body>
+@extends('layout.site')
+@section('titulo','AtmoVision')
+@section('conteudo')
     @if (session('success'))
         <div style="color: green;">
             {{ session('success') }}
@@ -24,5 +21,5 @@
         <input type="text" name="code" required>
         <button type="submit">Verificar Código</button>
     </form>
-</body>
-</html>
+@endsection
+
