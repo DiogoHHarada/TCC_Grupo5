@@ -11,21 +11,29 @@ Route::get('/Entrada',
 'uses'=>'App\Http\Controllers\Site\EntradaController@index']);
 
 
+Route::get('/Cadastro', 
+['as' =>'Cadastro',
+'uses'=>'App\Http\Controllers\Site\CadastroController@index']);
+
 Route::get('/Login', 
-['as' =>'login',
+['as' =>'Login',
 'uses'=>'App\Http\Controllers\Site\LoginController@index']);
 
-Route::post('/login/entrar',
+Route::post('/Login/entrar',
 ['as'=>'login.entrar',
 'uses'=>'App\Http\Controllers\Site\LoginController@entrar']);
 
-Route::get('/login/sair',
+Route::get('/Login/sair',
 ['as'=>'login.sair',
 'uses'=>'App\Http\Controllers\Site\LoginController@sair']);
 
 Route::get('/RedefinirSenha',
 ['as' =>'RedefinirSenha',
 'uses'=>'App\Http\Controllers\Site\RedefinirSenha@index']);
+
+Route::post('/RedefinirSenha/redefinir',
+['as' =>'RedefinirSenha.redefinir',
+'uses'=>'App\Http\Controllers\Site\RedefinirSenha@redefinir']);
 
 Route::get('/InserirEmail',
 ['as' =>'InserirEmail',

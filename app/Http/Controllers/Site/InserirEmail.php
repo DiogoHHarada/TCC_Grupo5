@@ -65,7 +65,7 @@ class InserirEmail extends Controller
 
         if ($user) {
             // Código verificado com sucesso
-            return redirect()->route('RedefinirSenha')->with('success', 'Código verificado com sucesso!');
+            return redirect()->route('RedefinirSenha')->with('success', 'Código verificado com sucesso!', $email);
         }
 
         return redirect()->back()->with('error', 'Código de verificação incorreto.');

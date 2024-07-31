@@ -6,7 +6,9 @@
         @import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@160..700&display=swap');
     </style>
     <div class="container">
-        <form id="login-form">
+        <form id="login-form" action = "{{ route('RedefinirSenha.redefinir') }}" method="POST">
+            @csrf
+            <input type="hidden" name="email" value="{{ old('email') }}">
             <h1>Redefinindo sua senha<span class="dots"></span></h1>
             <div class="input-container">
                 <input id="new-password" placeholder="Nova senha" type="password" required>

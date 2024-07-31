@@ -37,11 +37,11 @@ return [
     'mailers' => [
     'smtp' => [
         'transport' => 'smtp',
-        'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+        'host' => env('MAIL_HOST', 'smtp.office365.com'),
         'port' => env('MAIL_PORT', 587),
         'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-        'username' => env('MAIL_USERNAME'),
-        'password' => env('MAIL_PASSWORD'),
+        'username' => env('wristwear.cti10@outlook.com'),
+        'password' => env('a6a7c8d9d10'),
         'timeout' => null,
         'auth_mode' => null,
     ],

@@ -22,7 +22,7 @@
             <button type="submit" class="submit-button">Entrar</button>
 
             <div class="register-link">
-                <p>Não está cadastrado ? <a href="#">Cadastrar</a></p>
+                <p>Não está cadastrado ? <a href="{{ route('Cadastro')}}">Cadastrar</a></p>
             </div>
 
         </form>
