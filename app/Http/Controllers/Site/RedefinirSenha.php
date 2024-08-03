@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Usuario; // Certifique-se de que o modelo correto está sendo usado
+use Illuminate\Support\Facades\Hash; // Para criptografar a senha
 
 class RedefinirSenha extends Controller
 {
@@ -14,36 +16,39 @@ class RedefinirSenha extends Controller
         return view('RedefinirSenha.index');
     }
 
-    
+    public function showUpdatePasswordForm($id)
+    {
+        // Buscar o usuário pelo ID
+        $usuario = Usuario::find($id);
 
-    public function redefinir(Request $request){
+        // Verificar se o usuário existe
+        if ($usuario) {
+            // Passar o usuário para a view
+            return view('RedefinirSenha.index', ['usuario' => $usuario]);
+        } else {
+            // Redirecionar com uma mensagem de erro se o usuário não for encontrado
+            return redirect()->route('home')->withErrors(['error' => 'Usuário não encontrado.']);
+        }
+    }
+
+    public function redefinir(Request $request, $id){
+
+        // Validar os dados recebidos
+        $validatedData = $request->validate([
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+
+        // Encriptar a nova senha
+        $validatedData['password'] = Hash::make($validatedData['password']);
+
+        // Atualizar a senha do usuário
+        $usuario = Usuario::find($id);
         
-        $email = $request->input('email');
-        $new_password = $request->input('new-password');
-        $confirm_password = $request->input('confirm-password');
-
-        // Verificar se o e-mail é válido
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            return back()->withErrors(['email' => 'E-mail inválido!']);
+        if ($usuario) {
+            $usuario->update(['senha' => $validatedData['password']]);
+            return redirect()->route('Login')->with('success', 'Senha atualizada com sucesso! Por favor, faça login.');
+        } else {
+            return back()->withErrors(['error' => 'Usuário não encontrado.']);
         }
-
-        if ($new_password !== $confirm_password) {
-            return back()->withErrors(['new-password' => 'As credenciais inseridas estão diferentes!']);
-        }
-
-        $user = Usuario::where('email', $email)->first();
-
-        if (!$user) {
-            return back()->withErrors(['email' => 'E-mail não encontrado!']);
-        }
-
-        try {
-            $user->password = bcrypt($new_password);
-            $user->save();
-        } catch (\Exception $e) {
-            return back()->withErrors(['error' => 'Erro ao atualizar senha!']);
-        }
-
-        return redirect()->back()->with('success', 'Senha redefinida com sucesso!');
     }
 }

@@ -34,18 +34,18 @@ Route::get('/Login/sair',
 Route::get('/RedefinirSenha',
 ['as' =>'RedefinirSenha',
 'uses'=>'App\Http\Controllers\Site\RedefinirSenha@index']);
+ 
+Route::get('/RedefinirSenha/redefinir/{id}/form', 
+['as' => 'RedefinirSenha.showUpdatePasswordForm',
+'uses' => 'App\Http\Controllers\Site\RedefinirSenha@showUpdatePasswordForm']);
 
-Route::post('/RedefinirSenha/redefinir',
+Route::put('/RedefinirSenha/redefinir/{id}',
 ['as' =>'RedefinirSenha.redefinir',
 'uses'=>'App\Http\Controllers\Site\RedefinirSenha@redefinir']);
 
 Route::get('/InserirEmail',
 ['as' =>'InserirEmail',
 'uses'=>'App\Http\Controllers\Site\InserirEmail@index']);
-
-Route::post('InserirEmail/enviar',
-['as' =>'InserirEmail.enviar',
-'uses'=>'App\Http\Controllers\Site\InserirEmail@enviar']);
 
 Route::post('InserirEmail/enviar',
 ['as' =>'InserirEmail.enviar',
@@ -58,8 +58,4 @@ Route::get('InserirEmail/verificar',
 Route::post('InserirEmail/verificar', 
 ['as' => 'InserirEmail.verificar.code',
 'uses' => 'App\Http\Controllers\Site\InserirEmail@verifyCode']);
-
-Route::get('Dashboard', 
-['as' => 'Dashboard',
-'uses' => 'App\Http\Controllers\Site\Dashboard@index']);
 
