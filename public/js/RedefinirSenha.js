@@ -29,7 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     form.addEventListener("submit", (event) => {
-        event.preventDefault();
         
         if (newPasswordInput.value !== confirmPasswordInput.value) {
             errorMessage.textContent = "As credenciais inseridas estão diferentes!";
