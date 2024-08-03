@@ -15,6 +15,10 @@ Route::get('/Cadastro',
 ['as' =>'Cadastro',
 'uses'=>'App\Http\Controllers\Site\CadastroController@index']);
 
+Route::post('/Cadastro/store', 
+['as' =>'Cadastro.store',
+'uses'=>'App\Http\Controllers\Site\CadastroController@store']);
+
 Route::get('/Login', 
 ['as' =>'Login',
 'uses'=>'App\Http\Controllers\Site\LoginController@index']);
