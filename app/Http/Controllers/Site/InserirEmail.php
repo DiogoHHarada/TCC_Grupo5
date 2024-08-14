@@ -48,27 +48,26 @@ class InserirEmail extends Controller
     public function showVerifyForm(Request $request)
     {
         $email = session('email');
-        return view('VerificarCodigo.index', compact('email'));
+        return view('VerificarCodigo.index', ['email' => $email]);
     }
 
     public function verifyCode(Request $request)
-{
-    $request->validate([
-        'email' => 'required|email',
-        'code' => 'required|numeric|digits:6',
-    ]);
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'code' => 'required|numeric|digits:6',
+        ]);
 
-    $email = $request->input('email');
-    $code = $request->input('code');
+        $email = $request->input('email');
+        $code = $request->input('code');
 
-    $user = Usuario::where('email', $email)->where('verificacao_codigo', $code)->first();
+        $user = Usuario::where('email', $email)->where('verificacao_codigo', $code)->first();
 
-    if ($user) {
-        // Código verificado com sucesso
-        return redirect()->route('RedefinirSenha.showUpdatePasswordForm', ['id' => $user->id])->with('success', 'Código verificado com sucesso!');
+        if ($user) {
+            // Código verificado com sucesso
+            return redirect()->route('RedefinirSenha.showUpdatePasswordForm', ['id' => $user->id])->with('success', 'Código verificado com sucesso!');
+        }
+
+        return redirect()->back()->withInput()->with('error', 'Código de verificação incorreto.');
     }
-
-    return redirect()->back()->with('error', 'Código de verificação incorreto.');
-}
-
 }

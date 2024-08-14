@@ -1,7 +1,7 @@
 @extends('layout.site')
 @section('titulo','AtmoVision')
 @section('conteudo')
-    <link rel="stylesheet" href="/css/InserirEmail.css">
+    <link rel="stylesheet" href="css/InserirEmail.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@160..700&display=swap');
     </style>

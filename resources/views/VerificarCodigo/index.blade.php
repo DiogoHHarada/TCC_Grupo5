@@ -21,11 +21,11 @@
         @csrf
         <!--<label for="email">E-mail:</label>
         <input type="email" name="email" value="{{ $email }}" readonly required>
-        <label for="code">Digite o código de verificação:</label>
+        <label for="code">Digite o cÃ³digo de verificaÃ§Ã£o:</label>
         <input type="text" name="code" required>
-        <button type="submit">Verificar Código</button> -->
-
-        <h1>verificação de Código<span class="pendulum">!</span></h1>
+        <button type="submit">Verificar CÃ³digo</button> -->
+        
+        <h1>Verificação de Código<span class="pendulum">!</span></h1>
             <div class="input-container">
                 <input type="email" name="email" value="{{ $email }}" readonly required>
                 <img width="20" height="20" src="/img/user_icon.png" alt="User Icon"/>
@@ -35,10 +35,10 @@
                 <input id="password" type="password" name="code" placeholder="Digite o código de verificação:"required>
                 <img id="toggle-password" width="20" height="20" src="/img/show_password_icon.png" alt="Toggle Password Visibility" />
             </div>
+
             <button type="submit" class="submit-button">Verificar Código</button>
         </div>
-        <script src="/js/Login.js"></script>
+        <script src="/js/Login.js'"></script>
     </form>
     
 @endsection
-
