@@ -18,13 +18,13 @@
                 </div>
                 <div class="dropdown-group">
                     <span class="dropdown-title">Home</span>
-                    <a href="#">Sobre</a>
+                    <a href="{{ route('SobreNos')}}">Sobre</a>
                     <a href="#">Contato</a>
                 </div>
                 <div class="dropdown-group">
                     <span class="dropdown-title">Cadastro</span>
-                    <a href="#">Novo Usuário</a>
-                    <a href="#">Login</a>
+                    <a href="{{ route('Cadastro')}}">Novo Usuário</a>
+                    <a href="{{ route('Login')}}">Login</a>
                 </div>
                 <div class="dropdown-group">
                     <span class="dropdown-title">Gráficos</span>
@@ -44,7 +44,7 @@
             <div class="dropdown">
                 <a href="#">Home</a>
                 <div class="dropdown-content">
-                    <a href="#">Sobre</a>
+                    <a href="{{ route('SobreNos')}}">Sobre</a>
                     <a href="#">Contato</a>
                 </div>
             </div>
@@ -52,8 +52,8 @@
             <div class="dropdown">
                 <a href="#">Cadastro</a>
                 <div class="dropdown-content">
-                    <a href="#">Novo Usuário</a>
-                    <a href="#">Login</a>
+                    <a href="{{ route('Cadastro')}}">Novo Usuário</a>
+                    <a href="{{ route('Login')}}">Login</a>
                 </div>
             </div>
             <div class="dropdown">

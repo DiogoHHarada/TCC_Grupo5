@@ -56,6 +56,7 @@
 
             <div class="register-link">
                 <p>Já está cadastrado? <a href="{{route('Login')}}">Login</a></p>
+                <a class="return-link" href="#">Ir para página principal</a>
             </div>
 
         </form>

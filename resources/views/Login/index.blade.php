@@ -23,6 +23,8 @@
 
             <div class="register-link">
                 <p>Não está cadastrado ? <a href="{{ route('Cadastro')}}">Cadastrar</a></p>
+                <a class="return-link" href="#">Ir para página principal</a>
+
             </div>
 
         </form>

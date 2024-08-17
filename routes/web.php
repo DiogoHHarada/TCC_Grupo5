@@ -61,6 +61,10 @@ Route::get('/InserirEmail',
 ['as' =>'InserirEmail',
 'uses'=>'App\Http\Controllers\Site\InserirEmail@index']);
 
+Route::get('/SobreNos', 
+['as' =>'SobreNos',
+'uses'=>'App\Http\Controllers\Site\SobreNos@index']);
+
 
 
 
