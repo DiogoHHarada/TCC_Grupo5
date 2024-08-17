@@ -27,7 +27,7 @@
         
         <h1>Verificação de Código<span class="pendulum">!</span></h1>
             <div class="input-container">
-                <input type="email" name="email" value="{{ $email }}" readonly required>
+                <input type="email" name="email" value="{{ old('email', $email) }}" readonly required>
                 <img width="20" height="20" src="/img/user_icon.png" alt="User Icon"/>
             </div>
 
