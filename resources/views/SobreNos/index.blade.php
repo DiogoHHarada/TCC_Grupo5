@@ -11,7 +11,7 @@
         </p>
     </div>
     <div class="retangulo22">
-        <img src="images/img_project.jpg" alt="Project Photo">
+        <img src="/img/img_project.jpg" alt="Project Photo">
     </div>
 </div>
 
@@ -26,7 +26,7 @@
 <div class="grid-layout">
     <!-- The Team -->
     <div class="retangulo2">
-        <img src="images/img_team.jpg" alt="Team Photo">
+        <img src="/img/img_team.jpg" alt="Team Photo">
     </div>
     <div class="retangulo1 light">
         <h1 class="jump">Atm Vizion Team</h1>

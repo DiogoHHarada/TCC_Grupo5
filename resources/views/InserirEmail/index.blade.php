@@ -1,4 +1,4 @@
-@extends('layout.site')
+@extends('layout.app')
 @section('titulo','AtmoVision')
 @section('conteudo')
     <link rel="stylesheet" href="css/InserirEmail.css">
