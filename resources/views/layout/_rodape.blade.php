@@ -1,3 +1,3 @@
-    <script src="/js/Cabecalho</script>
+    <script src="/js/Cabecalho"></script>
    </body>
 </html>
