@@ -17,6 +17,7 @@ return new class extends Migration
             $table->float('umidade');
             $table->float('vel_vento');
             $table->string('dir_vento');
+            $table->datetime('data_hora');
             $table->timestamps();
         });
     }
