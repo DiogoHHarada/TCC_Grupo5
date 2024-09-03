@@ -64,6 +64,6 @@
             </div>
         </nav>
         <div class="user-icon">
-            <img src="/img/user_icon (1).png" alt="Conta">
+            <a href="{{route('perfil')}}"> <img src="/img/user_icon (1).png" alt="Conta"></a>
         </div>
     </header>

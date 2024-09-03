@@ -66,6 +66,11 @@ Route::get('/SobreNos',
 'uses'=>'App\Http\Controllers\Site\SobreNos@index']);
 
 
+Route::get('/perfil', 
+['as' =>'perfil',
+'uses'=>'App\Http\Controllers\Site\PerfilController@index']);
+
+
 
 
 
