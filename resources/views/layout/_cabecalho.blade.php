@@ -17,13 +17,13 @@
                 </div>
                 <div class="dropdown-group">
                     <span class="dropdown-title">Home</span>
-                    <a href="{{ route('SobreNos')}}">Sobre</a>
+                    <a href="{{ route('sobrenos')}}">Sobre</a>
                     <a href="#">Contato</a>
                 </div>
                 <div class="dropdown-group">
                     <span class="dropdown-title">Cadastro</span>
-                    <a href="{{ route('Cadastro')}}">Novo Usuário</a>
-                    <a href="{{ route('Login')}}">Login</a>
+                    <a href="{{ route('cadastro')}}">Novo Usuário</a>
+                    <a href="{{ route('login')}}">Login</a>
                 </div>
                 <div class="dropdown-group">
                     <span class="dropdown-title">Gráficos</span>
@@ -43,7 +43,7 @@
             <div class="dropdown">
                 <a href="#">Home</a>
                 <div class="dropdown-content">
-                    <a href="{{ route('SobreNos')}}">Sobre</a>
+                    <a href="{{ route('sobrenos')}}">Sobre</a>
                     <a href="#">Contato</a>
                 </div>
             </div>
@@ -51,8 +51,8 @@
             <div class="dropdown">
                 <a href="#">Cadastro</a>
                 <div class="dropdown-content">
-                    <a href="{{ route('Cadastro')}}">Novo Usuário</a>
-                    <a href="{{ route('Login')}}">Login</a>
+                    <a href="{{ route('cadastro')}}">Novo Usuário</a>
+                    <a href="{{ route('login')}}">Login</a>
                 </div>
             </div>
             <div class="dropdown">
@@ -66,4 +66,12 @@
         <div class="user-icon">
             <a href="{{route('perfil')}}"> <img src="/img/user_icon (1).png" alt="Conta"></a>
         </div>
+
+        @if(Auth::guest())
+            <li><a href="{{route('login')}}">Login</a></li>
+            @else
+            <li><a href="{{route('perfil')}}">Perfil</a></li>
+            <li><a href="#">{{Auth::usuario()->name}}</a></li>
+            <li><a href="{{ route('login.sair') }}">Sair</a></li>
+        @endif
     </header>

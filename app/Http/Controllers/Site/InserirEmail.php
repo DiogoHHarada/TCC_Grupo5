@@ -11,7 +11,7 @@ class InserirEmail extends Controller
 {
     //
     public function index() {
-        return view('InserirEmail.index');
+        return view('inseriremail.index');
     }
 
     public function enviar(Request $request)
@@ -39,7 +39,7 @@ class InserirEmail extends Controller
         $user->save();
 
         // Redirecionar para a página de verificação de código
-        return redirect()->route('InserirEmail.verificar')->with('email', $email);
+        return redirect()->route('inseriremail.verificar')->with('email', $email);
             }
 
         return redirect()->back()->with('error', 'E-mail não encontrado no banco de dados.');
@@ -48,7 +48,7 @@ class InserirEmail extends Controller
     public function showVerifyForm(Request $request)
     {
         $email = session('email');
-        return view('VerificarCodigo.index', ['email' => $email]);
+        return view('verificarcodigo.index', ['email' => $email]);
     }
 
     public function verifyCode(Request $request)
@@ -65,7 +65,7 @@ class InserirEmail extends Controller
 
         if ($user) {
             // Código verificado com sucesso
-            return redirect()->route('RedefinirSenha.showUpdatePasswordForm', ['id' => $user->id])->with('success', 'Código verificado com sucesso!');
+            return redirect()->route('redefinirsenha.showUpdatePasswordForm', ['id' => $user->id])->with('success', 'Código verificado com sucesso!');
         }
 
         return redirect()->back()->withInput()->with('error', 'Código de verificação incorreto.');

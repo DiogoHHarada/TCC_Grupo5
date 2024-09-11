@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     form.addEventListener("submit", (event) => {
-        event.preventDefault();  // Impede o envio do formulário para simular uma animação
         const submitButton = document.querySelector(".submit-button");
         
         submitButton.classList.add("loading");

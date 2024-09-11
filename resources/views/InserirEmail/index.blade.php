@@ -1,7 +1,7 @@
 @extends('layout.app')
 @section('titulo','AtmoVision')
 @section('conteudo')
-    <link rel="stylesheet" href="css/InserirEmail.css">
+    <link rel="stylesheet" href="css/inseriremail.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@160..700&display=swap');
     </style>
@@ -19,7 +19,7 @@
             </div>
         @endif
         
-        <form id="login-form" action="{{ route('InserirEmail.enviar')}}" method="POST">
+        <form id="login-form" action="{{ route('inseriremail.enviar')}}" method="POST">
             @csrf
             <h1>Confirme que é você<span class="pendulum">!</span></h1>
             <div class="input-container">
@@ -34,5 +34,5 @@
             </div>
         </form>
     </div>
-    <script src="/js/InserirEmail.js"></script>
+    <script src="/js/inseriremail.js"></script>
 @endsection

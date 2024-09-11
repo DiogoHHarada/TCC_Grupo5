@@ -1,7 +1,7 @@
 @extends('layout.app')
 @section('titulo','AtmoVision')
 @section('conteudo')
-    <link rel="stylesheet" href="/css/Login.css">
+    <link rel="stylesheet" href="/css/login.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@160..700&display=swap');
     </style>
@@ -17,14 +17,8 @@
         </div>
     @endif
 
-    <form action="{{ route('InserirEmail.verificar.code') }}" method="POST">
-        @csrf
-        <!--<label for="email">E-mail:</label>
-        <input type="email" name="email" value="{{ $email }}" readonly required>
-        <label for="code">Digite o cÃ³digo de verificaÃ§Ã£o:</label>
-        <input type="text" name="code" required>
-        <button type="submit">Verificar CÃ³digo</button> -->
-        
+    <form action="{{ route('inseriremail.verificar.code') }}" method="POST">
+        @csrf   
         <h1>Verificação de Código<span class="pendulum">!</span></h1>
             <div class="input-container">
                 <input type="email" name="email" value="{{ old('email', $email) }}" readonly required>
@@ -38,7 +32,7 @@
 
             <button type="submit" class="submit-button">Verificar Código</button>
         </div>
-        <script src="/js/Login.js'"></script>
+        <script src="/js/login.js'"></script>
     </form>
     
 @endsection

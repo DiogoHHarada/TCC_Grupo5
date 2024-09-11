@@ -21,7 +21,7 @@
     @endif
 
     <div class="container">
-        <form id="cadastro-form" action="{{route('Cadastro.store')}}" method="POST">
+        <form id="cadastro-form" action="{{route('cadastro.store')}}" method="POST">
             @csrf
             <h1>Bem vindo<span class="pendulum">!</span></h1>
             <div class="input-container">
@@ -55,12 +55,12 @@
             <button type="submit" class="submit-button">Cadastrar</button>
 
             <div class="register-link">
-                <p>Já está cadastrado? <a href="{{route('Login')}}">Login</a></p>
+                <p>Já está cadastrado? <a href="{{route('login')}}">Login</a></p>
                 <a class="return-link" href="#">Ir para página principal</a>
             </div>
 
         </form>
     </div>
     
-    <script src="/js/Cadastro.js"></script>
+    <script src="/js/cadastro.js"></script>
 @endsection

@@ -13,7 +13,7 @@ class RedefinirSenha extends Controller
     public function index() {
         // a visão que pede usuário e senha
         
-        return view('RedefinirSenha.index');
+        return view('redefinirsenha.index');
     }
 
     public function showUpdatePasswordForm($id)
@@ -24,7 +24,7 @@ class RedefinirSenha extends Controller
         // Verificar se o usuário existe
         if ($usuario) {
             // Passar o usuário para a view
-            return view('RedefinirSenha.index', ['usuario' => $usuario]);
+            return view('redefinirsenha.index', ['usuario' => $usuario]);
         } else {
             // Redirecionar com uma mensagem de erro se o usuário não for encontrado
             return redirect()->route('home')->withErrors(['error' => 'Usuário não encontrado.']);
@@ -46,7 +46,7 @@ class RedefinirSenha extends Controller
         
         if ($usuario) {
             $usuario->update(['senha' => $validatedData['password']]);
-            return redirect()->route('Login')->with('success', 'Senha atualizada com sucesso! Por favor, faça login.');
+            return redirect()->route('login')->with('success', 'Senha atualizada com sucesso! Por favor, faça login.');
         } else {
             return back()->withErrors(['error' => 'Usuário não encontrado.']);
         }

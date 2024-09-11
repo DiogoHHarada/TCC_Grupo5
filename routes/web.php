@@ -2,75 +2,65 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-    
-
-Route::get('/Entrada',
-['as' =>'Entrada',
-'uses'=>'App\Http\Controllers\Site\EntradaController@index']);
+Route::get('/',
+['as'=>'site.home',
+'uses'=>'App\Http\Controllers\Site\HomeController@index']);
 
 
-Route::get('/Cadastro', 
-['as' =>'Cadastro',
+Route::get('/cadastro', 
+['as' =>'cadastro',
 'uses'=>'App\Http\Controllers\Site\CadastroController@index']);
 
-Route::post('/Cadastro/store', 
-['as' =>'Cadastro.store',
+Route::post('/cadastro/store', 
+['as' =>'cadastro.store',
 'uses'=>'App\Http\Controllers\Site\CadastroController@store']);
 
-Route::get('/Login', 
-['as' =>'Login',
+Route::get('/login', 
+['as' =>'login',
 'uses'=>'App\Http\Controllers\Site\LoginController@index']);
 
-Route::post('/Login/entrar',
+Route::post('/login/entrar',
 ['as'=>'login.entrar',
 'uses'=>'App\Http\Controllers\Site\LoginController@entrar']);
 
-Route::get('/Login/sair',
+Route::get('/login/sair',
 ['as'=>'login.sair',
 'uses'=>'App\Http\Controllers\Site\LoginController@sair']);
 
-Route::post('InserirEmail/enviar',
-['as' =>'InserirEmail.enviar',
-'uses'=>'App\Http\Controllers\Site\InserirEmail@enviar']);
-
-Route::get('InserirEmail/verificar', 
-['as' => 'InserirEmail.verificar',
-'uses' => 'App\Http\Controllers\Site\InserirEmail@showVerifyForm']);
-
-Route::post('InserirEmail/verificar', 
-['as' => 'InserirEmail.verificar.code',
-'uses' => 'App\Http\Controllers\Site\InserirEmail@verifyCode']);
-
-Route::get('/RedefinirSenha',
-['as' =>'RedefinirSenha',
-'uses'=>'App\Http\Controllers\Site\RedefinirSenha@index']);
- 
-Route::get('/RedefinirSenha/redefinir/{id}/form', 
-['as' => 'RedefinirSenha.showUpdatePasswordForm',
-'uses' => 'App\Http\Controllers\Site\RedefinirSenha@showUpdatePasswordForm']);
-
-Route::put('/RedefinirSenha/redefinir/{id}',
-['as' =>'RedefinirSenha.redefinir',
-'uses'=>'App\Http\Controllers\Site\RedefinirSenha@redefinir']);
-
-Route::get('/InserirEmail',
-['as' =>'InserirEmail',
-'uses'=>'App\Http\Controllers\Site\InserirEmail@index']);
-
-Route::get('/SobreNos', 
-['as' =>'SobreNos',
+Route::get('/sobrenos', 
+['as' =>'sobrenos',
 'uses'=>'App\Http\Controllers\Site\SobreNos@index']);
-
 
 Route::get('/perfil', 
 ['as' =>'perfil',
 'uses'=>'App\Http\Controllers\Site\PerfilController@index']);
 
+Route::group(['middleware'=>'auth'], function(){
+    Route::get('/inseriremail',
+    ['as' =>'inseriremail',
+    'uses'=>'App\Http\Controllers\Site\InserirEmail@index']);
 
+    Route::post('inseriremail/enviar',
+    ['as' =>'inseriremail.enviar',
+    'uses'=>'App\Http\Controllers\Site\InserirEmail@enviar']);
 
+    Route::get('inseriremail/verificar', 
+    ['as' => 'inseriremail.verificar',
+    'uses' => 'App\Http\Controllers\Site\InserirEmail@showVerifyForm']);
 
+    Route::post('inseriremail/verificar', 
+    ['as' => 'inseriremail.verificar.code',
+    'uses' => 'App\Http\Controllers\Site\InserirEmail@verifyCode']);
 
+    Route::get('/redefinirsenha',
+    ['as' =>'redefinirsenha',
+    'uses'=>'App\Http\Controllers\Site\RedefinirSenha@index']);
+    
+    Route::get('/redefinirsenha/redefinir/{id}/form', 
+    ['as' => 'redefinirsenha.showUpdatePasswordForm',
+    'uses' => 'App\Http\Controllers\Site\RedefinirSenha@showUpdatePasswordForm']);
+
+    Route::put('/redefinirsenha/redefinir/{id}',
+    ['as' =>'redefinirsenha.redefinir',
+    'uses'=>'App\Http\Controllers\Site\RedefinirSenha@redefinir']);
+});

@@ -5,10 +5,9 @@ namespace App\Http\Controllers\Site;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class SobreNos extends Controller
+class HomeController extends Controller
 {
-    //
     public function index() {
-        return view('sobrenos.index');
+        return view('home');
     }
 }

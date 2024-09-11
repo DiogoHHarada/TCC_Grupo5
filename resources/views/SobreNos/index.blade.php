@@ -1,7 +1,7 @@
 @extends('layout.site')
 @section('titulo','AtmoVision')
 @section('conteudo') 
-    <link rel="stylesheet" href="/css/SobreNos.css">
+    <link rel="stylesheet" href="/css/sobrenos.css">
 
     <!-- Primeira Seção -->
     <div class="grid-layout">
@@ -84,5 +84,5 @@
         <div class="retangulo-identidade"></div>
         <div class="retangulo-identidade"></div>        
     </div>
-    <script src="/js/SobreNos.js"></script>
+    <script src="/js/sobrenos.js"></script>
 @endsection

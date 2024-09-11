@@ -11,7 +11,7 @@ class CadastroController extends Controller
 {
     //
     public function index() {
-        return view('Cadastro.index');
+        return view('cadastro.index');
     }
 
     public function store(Request $request)
@@ -31,7 +31,7 @@ class CadastroController extends Controller
             Usuario::create($validatedData);
 
             // Redirecionar para a página de login com uma mensagem de sucesso
-            return redirect()->route('Login')->with('success', 'Usuário criado com sucesso! Por favor, faça login.');
+            return redirect()->route('login')->with('success', 'Usuário criado com sucesso! Por favor, faça login.');
         } catch (\Exception $e) {
             // Registrar o erro para fins de depuração
             Log::error('Erro ao criar usuário: ' . $e->getMessage());

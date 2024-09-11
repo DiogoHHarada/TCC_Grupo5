@@ -6,7 +6,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@160..700&display=swap');
     </style>
     <div class="container">
-        <form id="login-form" action = "{{ route('RedefinirSenha.redefinir' , $usuario->id)}}" method="POST">
+        <form id="login-form" action = "{{ route('redefinirsenha.redefinir' , $usuario->id)}}" method="POST">
             @csrf
             @method('PUT')
             <h1>Redefinindo sua senha<span class="dots"></span></h1>
@@ -25,5 +25,5 @@
             </div>
         </form>
     </div>
-    <script src="/js/RedefinirSenha.js"></script>
+    <script src="/js/redefinirsenha.js"></script>
 @endsection
