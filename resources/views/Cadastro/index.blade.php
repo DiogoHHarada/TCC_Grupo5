@@ -42,7 +42,7 @@
 
             <div class="input-container">
                 <!--comparação de senha-->
-                <input id="passwordconf" placeholder="Confirmar Senha" type="password" naeme="" required>
+                <input id="passwordconf" placeholder="Confirmar Senha" type="password" name="senha" required>
                 <img id="toggle-passwordconf" width="20" height="20" src="/img/show_password_icon.png"
                     alt="Toggle Password Visibility" />
             </div>
