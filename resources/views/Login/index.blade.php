@@ -7,10 +7,10 @@
     </style>
     <div class="container">
         <form id="login-form" action="{{route('login.entrar')}}" method="post">
-            @csrf
+            {{ csrf_field() }}
             <h1>Bem vindo novamente<span class="pendulum">!</span></h1>
             <div class="input-container">
-                <input id="email" placeholder="Email" type="email" name="email" required>
+                <input id="email" placeholder="Email" type="email" name="email" value="{{ old('email') }}" required>
                 <img width="20" height="20" src="/img/user_icon.png" alt="User Icon"/>
             </div>
 

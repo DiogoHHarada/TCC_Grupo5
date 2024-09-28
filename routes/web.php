@@ -28,8 +28,8 @@ Route::middleware('guest')->group(function () {
     ['as' => 'login', 
     'uses' => 'App\Http\Controllers\Site\LoginController@index']);
 
-    Route::post('/login/entrar', [
-    'as' => 'login.entrar', 
+    Route::post('/login/entrar', 
+    ['as' => 'login.entrar', 
     'uses' => 'App\Http\Controllers\Site\LoginController@entrar']);
 
     Route::get('/inseriremail', 
@@ -65,9 +65,9 @@ Route::middleware('guest')->group(function () {
 Route::group(['middleware'=>'auth'],function(){
     Route::get('/login/perfil', 
     ['as' => 'login.perfil', 
-    'uses' => 'App\Http\Controllers\Site\LoginController@perfil']);
+    'uses' => 'App\Http\Controllers\Site\LoginController@show']);
 
-    Route::get('/login/sair', 
+    Route::post('/login/sair', 
     ['as' => 'login.sair', 
     'uses' => 'App\Http\Controllers\Site\LoginController@sair']);
 

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('senha');
             $table->integer('verificacao_codigo')->nullable();
+            $table->string('email_rec')->unique();
             $table->timestamps();
         });
     }

@@ -64,14 +64,7 @@
             </div>
         </nav>
         <div class="user-icon">
-            <a href="{{route('perfil')}}"> <img src="/img/user_icon (1).png" alt="Conta"></a>
+            <a href="{{route('login.perfil')}}"> <img src="/img/user_icon (1).png" alt="Conta"></a>
         </div>
 
-        @if(Auth::guest())
-            <li><a href="{{route('login')}}">Login</a></li>
-            @else
-            <li><a href="{{route('perfil')}}">Perfil</a></li>
-            <li><a href="#">{{Auth::usuario()->name}}</a></li>
-            <li><a href="{{ route('login.sair') }}">Sair</a></li>
-        @endif
     </header>
