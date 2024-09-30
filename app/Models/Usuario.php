@@ -7,8 +7,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Usuario extends Authenticatable
 {
-
-
     protected $fillable = ['nome', 'email', 'senha', 'verificacao_codigo', 'email_rec'];
     protected $hidden = ['senha']; // Esconde a senha nas respostas JSON, se necessário
 

@@ -41,8 +41,8 @@ Route::middleware('guest')->group(function () {
     'uses' => 'App\Http\Controllers\Site\InserirEmail@enviar']);
 
     Route::get('/inseriremail/verificar', 
-    ['as' => 'inseriremail.verificar', '
-    uses' => 'App\Http\Controllers\Site\InserirEmail@showVerifyForm']);
+    ['as' => 'inseriremail.verificar', 
+    'uses' => 'App\Http\Controllers\Site\InserirEmail@showVerifyForm']);
 
     Route::post('/inseriremail/verificar', 
     ['as' => 'inseriremail.verificar.code', 
