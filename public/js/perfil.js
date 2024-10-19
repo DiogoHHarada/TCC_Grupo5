@@ -30,8 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     form.addEventListener("submit", (event) => {
-        event.preventDefault();  // Impede o envio do formulário para simular uma animação
-
+        
         if (emailrecInput != null && emailInput != null && passwordInput != null && passwordconfInput != null) {
 
             if (passwordInput.value === passwordconfInput.value) {
