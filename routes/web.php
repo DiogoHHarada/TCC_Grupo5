@@ -14,6 +14,14 @@ Route::get('/chatbot',
 ['as' => 'chatbot', 
 'uses' => 'App\Http\Controllers\Site\ChatController@index']);
 
+Route::get('/grafico/diario', 
+['as' => 'grafico.diario', 
+'uses' => 'App\Http\Controllers\Site\GraficoController@diario']);
+
+Route::get('/grafico/semanal', 
+['as' => 'grafico.semanal', 
+'uses' => 'App\Http\Controllers\Site\GraficoController@semanal']);
+
 // Rotas acessíveis apenas por usuários não autenticados (guest)
 Route::middleware('guest')->group(function () {
     Route::get('/cadastro', 
@@ -74,4 +82,12 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('/perfil', 
     ['as' => 'perfil', 
     'uses' => 'App\Http\Controllers\Site\PerfilController@index']);
+
+    Route::get('/perfil/{id}/editar', 
+    ['as' => 'perfil.editar', 
+    'uses' => 'App\Http\Controllers\Site\PerfilController@editar']);
+
+    Route::put('/perfil/{id}/atulizar', 
+    ['as' => 'perfil.atualizar', 
+    'uses' => 'App\Http\Controllers\Site\PerfilController@atualizar']);
 });

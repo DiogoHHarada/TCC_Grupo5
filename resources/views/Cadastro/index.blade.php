@@ -47,11 +47,6 @@
                     alt="Toggle Password Visibility" />
             </div>
 
-            <div class="input-container">
-                <input id="emailrec" placeholder="Email para recuperar senha" type="email" required>
-                <img width="20" height="20" src="/img/user_icon.png" alt="User Icon" />
-            </div>
-
             <button type="submit" class="submit-button">Cadastrar</button>
 
             <div class="register-link">
