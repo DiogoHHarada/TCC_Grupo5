@@ -30,7 +30,7 @@
             <button type="submit" class="submit-button">Enviar</button>
 
             <div class="return-link">
-                <a href="#">Voltar para a tela principal</a>
+                <a href="{{route('grafico.diario')}}">Voltar para a tela principal</a>
             </div>
         </form>
     </div>

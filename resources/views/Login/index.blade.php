@@ -24,7 +24,7 @@
 
             <div class="register-link">
                 <p>Não está cadastrado ? <a href="{{ route('cadastro')}}">Cadastrar</a></p>
-                <a class="return-link" href="#">Ir para página principal</a>
+                <a class="return-link" href="{{route('grafico.diario')}}">Ir para página principal</a>
 
             </div>
 

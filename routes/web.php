@@ -14,6 +14,18 @@ Route::get('/chatbot',
 ['as' => 'chatbot', 
 'uses' => 'App\Http\Controllers\Site\ChatController@index']);
 
+Route::get('/chatbot/temperatura', 
+['as' => 'chatbot.temperatura', 
+'uses' => 'App\Http\Controllers\Site\ChatController@temperatura']);
+
+Route::get('/chatbot/umidade', 
+['as' => 'chatbot.umidade', 
+'uses' => 'App\Http\Controllers\Site\ChatController@umidade']);
+
+Route::get('/chatbot/grafico', 
+['as' => 'chatbot.grafico', 
+'uses' => 'App\Http\Controllers\Site\ChatController@grafico']);
+
 Route::get('/grafico/diario', 
 ['as' => 'grafico.diario', 
 'uses' => 'App\Http\Controllers\Site\GraficoController@diario']);
@@ -83,7 +95,7 @@ Route::group(['middleware'=>'auth'],function(){
     ['as' => 'perfil', 
     'uses' => 'App\Http\Controllers\Site\PerfilController@index']);
 
-    Route::get('/perfil/{id}/editar', 
+   Route::get('/perfil/{id}/editar', 
     ['as' => 'perfil.editar', 
     'uses' => 'App\Http\Controllers\Site\PerfilController@editar']);
 
@@ -91,3 +103,4 @@ Route::group(['middleware'=>'auth'],function(){
     ['as' => 'perfil.atualizar', 
     'uses' => 'App\Http\Controllers\Site\PerfilController@atualizar']);
 });
+	

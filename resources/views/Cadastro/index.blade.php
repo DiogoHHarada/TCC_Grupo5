@@ -1,7 +1,7 @@
 @extends('layout.app')
 @section('titulo','AtmoVision')
 @section('conteudo')  
-    <link rel="stylesheet" href="/css/Cadastro.css">
+    <link rel="stylesheet" href="/css/cadastro.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@160..700&display=swap');
     </style>
@@ -51,7 +51,7 @@
 
             <div class="register-link">
                 <p>Já está cadastrado? <a href="{{route('login')}}">Login</a></p>
-                <a class="return-link" href="#">Ir para página principal</a>
+                <a class="return-link" href="{{route('grafico.diario')}}">Ir para página principal</a>
             </div>
 
         </form>

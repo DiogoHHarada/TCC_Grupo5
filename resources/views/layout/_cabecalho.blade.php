@@ -7,7 +7,7 @@
     <body>
     <header class="header">
         <div class="menu-icon">
-            <img src="img/menu_icon.png" alt="Menu">
+            <img src="/img/menu_icon.png" alt="Menu">
             <div class="dropdown-content principal">
                 <div class="dropdown-group">
                     <span class="dropdown-title">Clima</span>
@@ -54,6 +54,6 @@
             </div>
         </nav>
         <div class="user-icon">
-            <a href="{{route('login.perfil')}}"> <img src="img/user_icon (1).png" alt="Conta"></a>
+            <a href="{{route('login.perfil')}}"> <img src="/img/user_icon (1).png" alt="Conta"></a>
         </div>
     </header>

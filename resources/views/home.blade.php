@@ -13,7 +13,7 @@
                     <a href="{{route('cadastro')}}"><button type="submit" class="button register" >Cadastrar</button></a>  
                     <a href="{{route('login')}}"> <button type="submit" class="button login">Entrar</button></a>
                 </div>
-                <a class="return-link" href="#">Ir para página principal</a>
+                <a class="return-link" href="{{route('grafico.diario')}}">Ir para página principal</a>
         </div>
     </div>
     <script src="/js/home.js"></script>
