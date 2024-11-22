@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Registro;
 
 Route::get('/', 
 ['as' => 'site.home', 
@@ -14,13 +15,15 @@ Route::get('/chatbot',
 ['as' => 'chatbot', 
 'uses' => 'App\Http\Controllers\Site\ChatController@index']);
 
-Route::get('/chatbot/temperatura', 
-['as' => 'chatbot.temperatura', 
-'uses' => 'App\Http\Controllers\Site\ChatController@temperatura']);
+Route::get('/api/ultima-temperatura', function () {
+    $ultimaTemperatura = Registro::latest('created_at')->first();
+    return response()->json(['temperatura' => $ultimaTemperatura->temperatura]);
+});
 
-Route::get('/chatbot/umidade', 
-['as' => 'chatbot.umidade', 
-'uses' => 'App\Http\Controllers\Site\ChatController@umidade']);
+Route::get('/api/ultima-umidade', function () {
+    $ultimaUmidade = Registro::latest('created_at')->first();
+    return response()->json(['umidade' => $ultimaUmidade->umidade]);
+});
 
 Route::get('/chatbot/grafico', 
 ['as' => 'chatbot.grafico', 

@@ -10,8 +10,8 @@
     <div class="main-container">
             <div class="container left-panel">
                 <div class="temperature-summary">
-                    <div class="max-temp">MÃ¡x.:  {{ $maxTemp }}°C</div>
-                    <div class="min-temp">Min.:  {{ $minTemp }}°C</div>
+                    <div class="max-temp">Máx:  {{ $maxTemp }}°C</div>
+                    <div class="min-temp">Min:  {{ $minTemp }}°C</div>
                 </div>
 
                  <table class="font-table-color">

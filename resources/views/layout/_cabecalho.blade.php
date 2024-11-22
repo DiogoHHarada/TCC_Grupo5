@@ -12,7 +12,6 @@
                 <div class="dropdown-group">
                     <span class="dropdown-title">Clima</span>
                     <a href="{{ route('grafico.diario')}}">Previsão do Tempo</a>
-                    <a href="{{ route('grafico.semanal')}}">Mapas Climáticos</a>
                 </div>
                 <div class="dropdown-group">
                     <span class="dropdown-title">Home</span>
@@ -28,11 +27,7 @@
         </div>
         <nav class="nav-menu">
             <div class="dropdown">
-                <a href="#">Clima</a>
-                <div class="dropdown-content">
-                    <a href="{{ route('grafico.diario')}}">Previsão do Tempo</a>
-                    <a href="{{ route('grafico.semanal')}}">Mapas Climáticos</a>
-                </div>
+                <a href="{{ route('grafico.diario')}}">Clima</a>
             </div>
             <div class="dropdown">
                 <a href="#">Home</a>

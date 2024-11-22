@@ -8,6 +8,7 @@ body, html {
     background-color: #FFFFFF;
     color: #333333;
     scroll-behavior: smooth;
+    animation: gradientAnimation 20s ease infinite; /* Animação constante */
 }
 
 /*HEADER*/
@@ -75,7 +76,7 @@ body, html {
 }
 
 .nav-menu a:hover {
-    color: #08B2FF;; /* Cor do texto ao passar o mouse */
+    color: #08B2FF; /* Cor do texto ao passar o mouse */
     text-shadow: 0 0 10px rgba(0, 170, 255, 0.5); /* Brilho na escrita */
     transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
 }
@@ -135,7 +136,7 @@ body, html {
 
 .menu-icon .dropdown-content.principal a:hover {
     background-color: #08B2FF;
-    color: white;
+    color: #FFFFFF;
 }
 
 .user-icon img, .menu-icon img {
@@ -217,6 +218,10 @@ header p {
 }
 
 /*DIVS TEAM*/
+#dev-4 {
+    grid-column: 2; /* Centraliza na coluna do meio */
+}
+
 #team {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -240,6 +245,22 @@ header p {
     /*FLEXBOX FOR CENTER*/
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.project {
+    background-color: #FFFFFF;
+    padding: 3vh 5vw;
+    border-radius: 2vw;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(5vh);
+
+    /*FLEXBOX FOR CENTER*/
+    display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
@@ -308,6 +329,54 @@ header p {
 .appear {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* RODAPÉ */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(270deg, #84D9FF, #FFFFFF, #84D9FF); /* Gradiente animado */
+    background-size: 400% 400%;
+    animation: footerGradientAnimation 10s ease infinite; /* Animação constante */
+    padding: 10px 0px 10px 0px;
+    width: 100%;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Readex Pro', sans-serif;
+}
+
+@keyframes footerGradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.footer-left, .footer-right {
+    display: flex;
+    align-items: center;
+    padding: 0px 20px 0px 20px;
+}
+
+.footer-left .icon, .footer-right .icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.footer-center .logo {
+    width: 50px;
+    height: auto;
+}
+
+.footer span {
+    font-size: 14px;
+    color: #333;
 }
 
 /*MEDIA*/

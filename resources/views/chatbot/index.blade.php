@@ -15,7 +15,7 @@
                 <button onclick="addMessageTemperatura()">Temperatura</button>
                 <button onclick="addMessageUmidade()">Umidade</button>
                 <button onclick="addMessageGrafico()">Gráfico</button>
-                <button>Sair</button>
+                <a href="{{ route('sobrenos')}}"><button>Sair</button></a>
             </div>
         </div>
     </div>

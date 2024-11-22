@@ -26,19 +26,31 @@ function addMessageTemperatura() {
     const loadingMessage = showLoadingMessage();
     messageContainer.appendChild(loadingMessage);
 
-    setTimeout(() => {
-        const temperaturaX = Math.floor(Math.random() * 35);
-        const temperaturaY = Math.floor(Math.random() * 35);
+    // Fazer a requisição para a API que retorna a última temperatura
+    fetch("/api/ultima-temperatura")
+        .then(response => response.json())
+        .then(data => {
+            const receivedMessage = document.createElement('div');
+            receivedMessage.classList.add('message', 'received', 'fade-in');
+            receivedMessage.textContent = `A temperatura atual é ${data.temperatura}°C`;
 
-        const receivedMessage = document.createElement('div');
-        receivedMessage.classList.add('message', 'received', 'fade-in');
-        receivedMessage.textContent = `A temperatura atual é ${temperaturaX}°C / ${temperaturaY}°C`;
+            messageContainer.replaceChild(receivedMessage, loadingMessage);
+            messageContainer.scrollTop = messageContainer.scrollHeight;
 
-        messageContainer.replaceChild(receivedMessage, loadingMessage);
-        messageContainer.scrollTop = messageContainer.scrollHeight;
+            disableButtons(false);  // Reabilitar botões
+        })
+        .catch(error => {
+            console.error("Erro ao obter temperatura:", error);
 
-        disableButtons(false);  // Reabilitar botões
-    }, 2000);
+            const errorMessage = document.createElement('div');
+            errorMessage.classList.add('message', 'received', 'fade-in');
+            errorMessage.textContent = "Erro ao obter a temperatura.";
+
+            messageContainer.replaceChild(errorMessage, loadingMessage);
+            messageContainer.scrollTop = messageContainer.scrollHeight;
+
+            disableButtons(false);  // Reabilitar botões
+        });
 }
 
 function addMessageUmidade() {
@@ -55,18 +67,31 @@ function addMessageUmidade() {
     const loadingMessage = showLoadingMessage();
     messageContainer.appendChild(loadingMessage);
 
-    setTimeout(() => {
-        const umidade = Math.floor(Math.random() * 100);
+    // Fazer a requisição para a API que retorna a última umidade
+    fetch("/api/ultima-umidade")
+        .then(response => response.json())
+        .then(data => {
+            const receivedMessage = document.createElement('div');
+            receivedMessage.classList.add('message', 'received', 'fade-in');
+        receivedMessage.textContent = `A umidade atual é ${data.umidade}%`;
 
-        const receivedMessage = document.createElement('div');
-        receivedMessage.classList.add('message', 'received', 'fade-in');
-        receivedMessage.textContent = `A umidade atual é ${umidade}%`;
+            messageContainer.replaceChild(receivedMessage, loadingMessage);
+            messageContainer.scrollTop = messageContainer.scrollHeight;
 
-        messageContainer.replaceChild(receivedMessage, loadingMessage);
-        messageContainer.scrollTop = messageContainer.scrollHeight;
+            disableButtons(false);  // Reabilitar botões
+        })
+        .catch(error => {
+            console.error("Erro ao obter umidade:", error);
 
-        disableButtons(false);  // Reabilitar botões
-    }, 2000);
+            const errorMessage = document.createElement('div');
+            errorMessage.classList.add('message', 'received', 'fade-in');
+            errorMessage.textContent = "Erro ao obter a umidade.";
+
+            messageContainer.replaceChild(errorMessage, loadingMessage);
+            messageContainer.scrollTop = messageContainer.scrollHeight;
+
+            disableButtons(false);  // Reabilitar botões
+        });
 }
 
 function addMessageGrafico() {
@@ -84,11 +109,22 @@ function addMessageGrafico() {
     messageContainer.appendChild(loadingMessage);
 
     setTimeout(() => {
+        // Remover a mensagem de carregamento
+        messageContainer.removeChild(loadingMessage);
+
+        // Criar o iframe com o link do Grafana
+        const graficoIframe = document.createElement('iframe');
+        graficoIframe.src = "http://localhost:3000/d-solo/be11xdrgidy4gb/tcc?orgId=1&from=1728374541000&to=1728375621000&panelId=1"; // Substitua pelo link do Grafana
+        graficoIframe.width = "100%";
+        graficoIframe.height = "300";
+        graficoIframe.frameBorder = "0";
+
+        // Inserir o iframe na mensagem de recebimento
         const receivedMessage = document.createElement('div');
         receivedMessage.classList.add('message', 'received', 'fade-in');
-        receivedMessage.textContent = 'Gráfico exibido com sucesso!';
+        receivedMessage.appendChild(graficoIframe);
 
-        messageContainer.replaceChild(receivedMessage, loadingMessage);
+        messageContainer.appendChild(receivedMessage);
         messageContainer.scrollTop = messageContainer.scrollHeight;
 
         disableButtons(false);  // Reabilitar botões
